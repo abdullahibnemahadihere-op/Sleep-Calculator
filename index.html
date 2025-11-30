@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Calculate your ideal bedtime based on sleep cycles. Find the perfect time to fall asleep for better rest and energy.">
+    <meta name="keywords" content="sleep calculator, bedtime calculator, sleep cycle, 90 minute sleep, wake up time">
+    <meta name="author" content="Sleep Calculator">
+    
+    <!-- Open Graph / Social Media Meta Tags -->
+    <meta property="og:title" content="Sleep Calculator - Find Your Perfect Bedtime">
+    <meta property="og:description" content="Calculate your ideal bedtime based on sleep cycles for better rest and energy.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://sleep-calculator.netlify.app">
+    <meta property="og:image" content="https://sleep-calculator.netlify.app/preview.png">
+    
+    <!-- Canonical Link -->
+    <link rel="canonical" href="https://sleep-calculator.netlify.app">
+    
+    <title>Sleep Calculator - Find Your Perfect Bedtime</title>
+    
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Custom Styles -->
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+        
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #0F172A;
+            color: #E2E8F0;
+        }
+        
+        .card-animation {
+            animation: fadeInUp 0.5s ease-out forwards;
+        }
+        
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        .btn-animation:hover {
+            transform: scale(1.02);
+            transition: all 0.2s ease;
+        }
+        
+        .btn-animation:active {
+            transform: scale(0.98);
+        }
+        
+        .highlight-card {
+            border: 2px solid #38BDF8;
+            box-shadow: 0 0 20px rgba(56, 189, 248, 0.3);
+        }
+    </style>
+</head>
+<body class="min-h-screen flex flex-col">
+    <!-- Header -->
+    <header class="py-12 text-center px-4">
+        <h1 class="text-4xl md:text-5xl font-bold mb-4 bg-gradient-to-r from-cyan-400 to-purple-500 bg-clip-text text-transparent">
+            Sleep Calculator
+        </h1>
+        <p class="text-xl text-gray-300 max-w-2xl mx-auto">
+            Find the perfect time to fall asleep for better rest and energy
+        </p>
+    </header>
+
+    <!-- Main Content -->
+    <main class="flex-grow container mx-auto px-4 max-w-3xl">
+        <!-- Wake-up Time Input Section -->
+        <section class="mb-12 bg-slate-800 rounded-2xl p-6 shadow-lg shadow-cyan-500/10">
+            <div class="mb-6">
+                <label for="wakeUpTime" class="block text-lg font-medium mb-2 text-gray-200">
+                    What time do you need to wake up?
+                </label>
+                <input 
+                    type="time" 
+                    id="wakeUpTime" 
+                    class="w-full p-4 text-xl bg-slate-700 border border-slate-600 rounded-xl text-white focus:ring-2 focus:ring-cyan-500 focus:border-transparent"
+                    placeholder="Select wake-up time"
+                >
+            </div>
+            
+            <button 
+                id="calculateBtn" 
+                class="btn-animation w-full py-4 px-6 bg-gradient-to-r from-cyan-500 to-blue-500 text-white font-semibold rounded-xl shadow-lg hover:shadow-cyan-500/30 transition-all duration-300 text-lg"
+            >
+                Calculate My Sleep Times
+            </button>
+        </section>
+
+        <!-- Info Box: What is a Sleep Cycle? -->
+        <section class="mb-12 bg-slate-800 rounded-2xl p-6 shadow-lg shadow-purple-500/10">
+            <h2 class="text-2xl font-bold mb-4 text-gray-100 flex items-center">
+                <span class="mr-2">🌙</span> What is a sleep cycle?
+            </h2>
+            <ul class="space-y-3 text-gray-300">
+                <li class="flex items-start">
+                    <span class="text-cyan-400 mr-2">•</span>
+                    <span><strong>90 minutes:</strong> The average length of a sleep cycle</span>
+                </li>
+                <li class="flex items-start">
+                    <span class="text-cyan-400 mr-2">•</span>
+                    <span><strong>15 minutes:</strong> Average time it takes to fall asleep</span>
+                </li>
+                <li class="flex items-start">
+                    <span class="text-cyan-400 mr-2">•</span>
+                    <span>Waking at the end of a cycle helps you feel refreshed</span>
+                </li>
+            </ul>
+        </section>
+
+        <!-- Results Section -->
+        <section id="resultsSection" class="hidden">
+            <h2 class="text-2xl font-bold mb-6 text-center text-gray-100">Your Ideal Sleep Times</h2>
+            <p class="text-center text-gray-400 mb-8">Recommended times to fall asleep for optimal rest</p>
+            
+            <div id="resultsContainer" class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <!-- Results will be dynamically inserted here -->
+            </div>
+            
+            <div class="mt-10 p-6 bg-gradient-to-br from-slate-800 to-slate-900 rounded-2xl border border-slate-700">
+                <h3 class="text-xl font-bold mb-3 text-gray-100 flex items-center">
+                    <span class="mr-2">💡</span> Pro Tip
+                </h3>
+                <p class="text-gray-300">
+                    For the best results, aim for 5-6 sleep cycles (7.5-9 hours). Try to go to bed 15-30 minutes before your chosen time to account for falling asleep.
+                </p>
+            </div>
+        </section>
+    </main>
+
+    <!-- JavaScript -->
+    <script src="script.js"></script>
+</body>
+</html>
